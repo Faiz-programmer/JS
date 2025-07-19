@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
+  <title>Cricket</title>
+</head>
+<body>
+  <h1>Cricket game</h1>
+  <button onclick="playGame('Bat')">Bat</button>
+  <button onclick="playGame('Ball')">Ball</button>
+  <button onclick="playGame('stump')">stump</button>
+
+  <script>
+    function playGame(userChoice) {
+      const randomNumber = Math.random() * 3;
+      let computerChoice;
+
+      if (randomNumber <= 1) {
+        computerChoice = 'Bat';
+      } else if (randomNumber <= 2) {
+        computerChoice = 'Ball';
+      } else {
+        computerChoice = 'Stump';
+      }
+
+      let result;
+      if (userChoice === computerChoice) {
+        result = "It's a tie";
+      } else if (
+        (userChoice === 'Bat' && computerChoice === 'Ball') ||
+        (userChoice === 'Ball' && computerChoice === 'Stump') ||
+        (userChoice === 'Stump' && computerChoice === 'Bat')
+      ) {
+        result = "User won";
+      } else {
+        result = "Computer won";
+      }
+
+      alert(`You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`);
+    }
+  </script>
+</body>
+</html>
